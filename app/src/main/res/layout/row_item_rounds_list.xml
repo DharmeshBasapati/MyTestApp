@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lnrRoundsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee"
+        android:gravity="center"
+        android:padding="10dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvRoundNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Round 1"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="Total Time"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDeviceTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="11:50 AM"
+            android:textSize="15sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTimerTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="00:00:10"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

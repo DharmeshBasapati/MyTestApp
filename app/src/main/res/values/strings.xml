@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyTestApp</string>
+    <string name="label_q1_timer_calculation">Q1 - Timer Calculation</string>
+    <string name="label_q2_timer_task">Q2 - Timer Task</string>
+    <string name="label_select_start_time">Select Start Time</string>
+    <string name="label_select_end_time">Select End Time</string>
+    <string name="label_go">Go</string>
+    <string name="label_start_timer">Start</string>
+    <string name="label_stop_timer">Stop</string>
+    <string name="label_pause_timer">Pause</string>
+    <string name="label_resume_timer">Resume</string>
+    <string name="msg_please_select_end_time_more_than_start_time">Please select end time more than start time.</string>
+    <string name="msg_you_selected_same_time">You selected same time.</string>
+    <string name="msg_please_select_both_first">Please select both start and end time first.</string>
+    <string name="label_pause">Pause</string>
+    <string name="label_resume">Resume</string>
+    <string name="label_init_time">00:00:00</string>
+    <string name="label_start">START</string>
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".question_two.TimerFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="00:00:00" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_start_timer" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_stop_timer" />
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvRoundNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="Round 1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDateTimeList"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        tools:listitem="@layout/row_item_date_time_list"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
