@@ -1,32 +1,32 @@
 package com.example.mytestapp.question_one
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mytestapp.R
 import com.example.mytestapp.databinding.RowItemTimeListBinding
-import com.google.android.material.textview.MaterialTextView
 
-class TimeListAdapter(var timeList:ArrayList<String>): RecyclerView.Adapter<TimeListAdapter.TimeListViewHolder>() {
+class TimeListAdapter(val adapterOnClick: (Any) -> Unit, private var timeList: ArrayList<String>) :
+    RecyclerView.Adapter<TimeListAdapter.TimeListViewHolder>() {
 
-    class TimeListViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
-        val tvTimeFrame: MaterialTextView = itemView.findViewById(R.id.tvTimeFrame)
-    }
+    inner class TimeListViewHolder(val rowItemTimeListBinding: RowItemTimeListBinding) :
+        RecyclerView.ViewHolder(rowItemTimeListBinding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeListViewHolder {
-        return TimeListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.row_item_time_list,parent,false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = TimeListViewHolder(
+        RowItemTimeListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    )
 
     override fun onBindViewHolder(holder: TimeListViewHolder, position: Int) {
-        holder.tvTimeFrame.text = timeList[position]
+        holder.rowItemTimeListBinding.tvTimeFrame.text = timeList[position]
+        holder.rowItemTimeListBinding.tvTimeFrame.setOnClickListener {
+            adapterOnClick("YOU CLICKED - ${timeList[position]}")
+        }
     }
 
     override fun getItemCount(): Int {
         return this.timeList.size
     }
 
-    fun addTimeList(_timeList:ArrayList<String>){
+    fun addTimeList(_timeList: ArrayList<String>) {
         this.timeList = _timeList
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyTestApp</string>
+    <string name="label_go">जाना</string>
+    <string name="label_start_timer">शुरू</string>
+    <string name="label_stop_timer">विराम</string>
+    <string name="label_pause_timer">ठहराव</string>
+    <string name="label_resume_timer">फिर शुरू करना</string>
+    <string name="msg_please_select_end_time_more_than_start_time">कृपया प्रारंभ समय से अधिक समाप्ति समय चुनें।</string>
+    <string name="msg_you_selected_same_time">आपने एक ही समय चुना है।</string>
+    <string name="msg_please_select_both_first">कृपया पहले प्रारंभ और समाप्ति समय दोनों का चयन करें।</string>
+    <string name="label_pause">ठहराव</string>
+    <string name="label_resume">फिर शुरू करना</string>
+    <string name="label_start">शुरू</string>
+    <string name="label_select_end_time">समाप्ति समय चुनें</string>
+    <string name="label_select_start_time">प्रारंभ समय चुनें</string>
+</resources>

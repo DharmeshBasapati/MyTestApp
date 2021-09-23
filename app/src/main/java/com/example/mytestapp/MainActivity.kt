@@ -1,8 +1,8 @@
 package com.example.mytestapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mytestapp.databinding.ActivityMainBinding
 import com.example.mytestapp.question_one.TimerCalculation
 import com.example.mytestapp.question_two.TimerTask
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnTimerTask.setOnClickListener {
-            startActivity(Intent(this, TimerTask::class.java))
+            startActivity(Intent(baseContext, TimerTask::class.java))
         }
 
     }

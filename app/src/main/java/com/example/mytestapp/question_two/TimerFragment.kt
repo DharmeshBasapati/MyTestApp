@@ -106,7 +106,7 @@ class TimerFragment : Fragment() {
             Log.d(TAG, "Latest Round Number: $roundNum")
         }.invokeOnCompletion {
             GlobalScope.launch(Dispatchers.Main) {
-                binding.tvRoundNumber.text = "Round $roundNum"
+                binding.tvRoundNumber.text = getString(R.string.label_round_number, { roundNum })
             }
         }
     }
@@ -171,6 +171,20 @@ class TimerFragment : Fragment() {
         mStatusChecker.run()
     }
 
+
+    private var mStatusChecker: Runnable = object : Runnable {
+        override fun run() {
+            try {
+                timeInSeconds += 1
+                updateStopWatchView(timeInSeconds)
+            } finally {
+                // 100% guarantee that this always happens, even if
+                // your update method throws an exception
+                mHandler!!.postDelayed(this, mInterval.toLong())
+            }
+        }
+    }
+
     private fun pauseTimer() {
 
         addNewTimeToDB(
@@ -197,7 +211,7 @@ class TimerFragment : Fragment() {
         currentRoundsList = ArrayList()
 
         roundNum++
-        binding.tvRoundNumber.text = "Round $roundNum"
+        binding.tvRoundNumber.text = getString(R.string.label_round_number, { roundNum })
 
         updateCurrentRoundsList()
         enableStopButton(false)
@@ -229,18 +243,6 @@ class TimerFragment : Fragment() {
 
     }
 
-    private var mStatusChecker: Runnable = object : Runnable {
-        override fun run() {
-            try {
-                timeInSeconds += 1
-                updateStopWatchView(timeInSeconds)
-            } finally {
-                // 100% guarantee that this always happens, even if
-                // your update method throws an exception
-                mHandler!!.postDelayed(this, mInterval.toLong())
-            }
-        }
-    }
 
     private fun updateStopWatchView(timeInSeconds: Long) {
         val formattedTime = getFormattedStopWatch((timeInSeconds * 1000))

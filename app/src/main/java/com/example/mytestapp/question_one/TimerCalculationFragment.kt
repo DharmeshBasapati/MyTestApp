@@ -32,7 +32,7 @@ class TimerCalculationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTimerCalculationBinding.inflate(layoutInflater)
 
         binding.btnStartTime.setOnClickListener {
@@ -64,8 +64,12 @@ class TimerCalculationFragment : Fragment() {
             startTimeSelected = true
             startHour = picker.hour
             startMinute = picker.minute
-            binding.tvStartTime.text =
-                "Start Time - ${getModifiedHour(startHour)}:${getModifiedMinutes(startMinute)}"
+            binding.tvStartTime.text = getString(
+                R.string.label_start_time_with_time,
+                getModifiedHour(startHour),
+                getModifiedMinutes(startMinute)
+            )
+
         }
 
     }
@@ -102,8 +106,11 @@ class TimerCalculationFragment : Fragment() {
                 endHour = picker.hour
                 endMinute = picker.minute
 
-                binding.tvEndTime.text =
-                    "End Time - ${getModifiedHour(endHour)}:${getModifiedMinutes(endMinute)}"
+                binding.tvEndTime.text = getString(
+                    R.string.label_end_time_with_time,
+                    getModifiedHour(endHour),
+                    getModifiedMinutes(endMinute)
+                )
             }
         }
     }
@@ -181,19 +188,23 @@ class TimerCalculationFragment : Fragment() {
     }
 
     private fun findUniqueNumbersFromTheList() {
-        //TODO
     }
 
     private fun initList() {
         binding.rvTimeList.layoutManager = LinearLayoutManager(activity)
-        timeListAdapter = TimeListAdapter(arrayListOf())
+        timeListAdapter = TimeListAdapter({ item -> doClick(item) }, arrayListOf())
         binding.rvTimeList.adapter = timeListAdapter
+    }
+
+    private fun doClick(item: Any) {
+        Log.d(TAG, "onItemClick: $item")
     }
 
     private fun updateTimeList() {
         timeListAdapter.addTimeList(timeList)
-        timeListAdapter.notifyDataSetChanged()
+        if (timeList.size > 0) {
+            timeListAdapter.notifyItemInserted(timeList.size - 1)
+        }
     }
-
 
 }
