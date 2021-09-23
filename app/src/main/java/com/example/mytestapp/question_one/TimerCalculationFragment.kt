@@ -27,8 +27,6 @@ class TimerCalculationFragment : Fragment() {
     private var endMinute: Int = 0
     private lateinit var timeList: ArrayList<String>
 
-    private val TAG = "TimerCalculationFragmen"
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -119,7 +117,7 @@ class TimerCalculationFragment : Fragment() {
 
         if (startTimeSelected && endTimeSelected) {
 
-            timeList = ArrayList<String>()
+            timeList = ArrayList()
 
             Log.d(TAG, "generateTimeList: START TIME - $startHour:$startMinute")
             Log.d(TAG, "generateTimeList: END TIME - $endHour:$endMinute")
@@ -205,6 +203,10 @@ class TimerCalculationFragment : Fragment() {
         if (timeList.size > 0) {
             timeListAdapter.notifyItemInserted(timeList.size - 1)
         }
+    }
+
+    companion object {
+        val TAG = TimerCalculationFragment::class.simpleName
     }
 
 }
